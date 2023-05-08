@@ -15,35 +15,67 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2941.cpp">
+    <ClCompile Include="Baekjoon\2941.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="10812.cpp">
+    <ClCompile Include="Baekjoon\10812.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="2903.cpp">
+    <ClCompile Include="Baekjoon\2903.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="1193.cpp">
+    <ClCompile Include="Baekjoon\1193.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="2869.cpp">
+    <ClCompile Include="Baekjoon\2869.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="10757.cpp">
+    <ClCompile Include="Baekjoon\10757.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="1018.cpp">
+    <ClCompile Include="Baekjoon\1018.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="2389.cpp">
+    <ClCompile Include="Baekjoon\2389.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="1436.cpp">
+    <ClCompile Include="Baekjoon\1436.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스.cpp">
+    <ClCompile Include="Baekjoon\1181.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MemoryTracker.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Baekjoon\11651.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Baekjoon\10814.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Baekjoon\18870.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Baekjoon\10815.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Baekjoon\1764.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Baekjoon\1934.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Baekjoon\2485.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Baekjoon\소스.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="memory_tracker.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
