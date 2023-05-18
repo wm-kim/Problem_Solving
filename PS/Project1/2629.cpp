@@ -1,3 +1,4 @@
+// ëƒ…ìƒ‰ ì•Œê³ ë¦¬ì¦˜ìœ¼ë¡œ í‘¸ëŠ” ë¬¸ì œ
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -6,7 +7,7 @@ int main()
 {
 	int n, m; cin >> n;
 	vector<int> v(n + 1); for (int i = 1; i <= n; ++i) cin >> v[i];
-	dp[0][0] = true; // 0°³ÀÇ Ãß·Î 0gÀ» ¸¸µé ¼ö ÀÖ´Ù.
+	dp[0][0] = true; // 0ê°œì˜ ì¶”ë¡œ 0gì„ ë§Œë“¤ ìˆ˜ ìˆë‹¤.
 	for (int i = 1; i <= n; ++i)
 	{
 		for (int j = 0; j <= 40000; ++j)
