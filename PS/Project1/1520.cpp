@@ -43,16 +43,16 @@ using namespace std;
 int M, N;
 int heights[501][501];
 ll dp[501][501];
-bool visited[501][501] = { false };
+bool dist[501][501] = { false };
 int dx[] = { -1, 0, 1, 0 };
 int dy[] = { 0, -1, 0, 1 };
 ll dfs(int x, int y) {
 	// Reached the destination
 	if (x == M && y == N) return 1;
 	// Return the already calculated value
-	if (visited[x][y]) return dp[x][y];  
+	if (dist[x][y]) return dp[x][y];  
 
-	visited[x][y] = true;
+	dist[x][y] = true;
 	// **Initialize the number of paths from current position**
 	dp[x][y] = 0; 
 

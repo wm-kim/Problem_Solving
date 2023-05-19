@@ -3,13 +3,13 @@
 #include <set>
 #include <vector>
 using namespace std;
-int cnt, order[100001], visited[100001] = { false };
+int cnt, order[100001], dist[100001] = { false };
 void dfs(vector<set<int>>& graph, int r)
 {
-	visited[r] = true;
+	dist[r] = true;
 	order[r] = ++cnt;
 	for (auto node : graph[r])
-		if (!visited[node]) dfs(graph, node);
+		if (!dist[node]) dfs(graph, node);
 }
 int main()
 {

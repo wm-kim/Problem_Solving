@@ -3,7 +3,7 @@
 using namespace std;
 int n, m;
 vector<int> ans;
-bool visited[9];
+bool dist[9];
 
 void backtracking(int depth)
 {
@@ -14,12 +14,12 @@ void backtracking(int depth)
 	}
 	for (int i = 1; i <= n; i++)
 	{
-		if (!visited[i])
+		if (!dist[i])
 		{
 			if (ans.size() > 0 && ans.back() > i) continue; 
-			visited[i] = true; ans.push_back(i);
+			dist[i] = true; ans.push_back(i);
 			backtracking(depth + 1);
-			ans.pop_back(); visited[i] = false;
+			ans.pop_back(); dist[i] = false;
 		}
 	}
 }

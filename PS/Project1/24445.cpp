@@ -4,10 +4,11 @@
 #include <queue>
 #include <vector>
 using namespace std;
-int cnt, order[100001], visited[100001] = { false };
-void bfs(vector<set<int>>& graph, int r)
+int cnt, order[100001], dist[100001] = { false };
+struct Compare { bool operator()(int a, int b) const { return a > b; } };
+void bfs(vector<set<int, Compare>>& graph, int r)
 {
-	visited[r] = true;
+	dist[r] = true;
 	order[r] = ++cnt;
 	queue<int> q; q.push(r);
 	while (!q.empty())
@@ -15,9 +16,9 @@ void bfs(vector<set<int>>& graph, int r)
 		int cur = q.front(); q.pop();
 		for (auto& next : graph[cur])
 		{
-			if (!visited[next])
+			if (!dist[next])
 			{
-				visited[next] = true;
+				dist[next] = true;
 				order[next] = ++cnt;
 				q.push(next);
 			}
@@ -27,7 +28,7 @@ void bfs(vector<set<int>>& graph, int r)
 int main()
 {
 	int N, M, R; cin >> N >> M >> R;
-	vector<set<int>> graph(N + 1);
+	vector<set<int, Compare>> graph(N + 1);
 	while (M--) {
 		int from, to; cin >> from >> to;
 		graph[from].insert(to);
