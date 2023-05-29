@@ -1,38 +1,32 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+const int MAX = 100001;
 using namespace std;
-struct Node { char data; Node* left; Node* right; };
-void preorder(Node* root) {
-	if (root == NULL) return;
-	cout << root->data;
-	preorder(root->left);
-	preorder(root->right);
-}
-void inorder(Node* root) {
-	if (root == NULL) return;
-	inorder(root->left);
-	cout << root->data;
-	inorder(root->right);
-}
-void postorder(Node* root) {
-	if (root == NULL) return;
-	postorder(root->left);
-	postorder(root->right);
-	cout << root->data;
+int N, inorder[MAX], postorder[MAX], idx[MAX];
+void GetPreOrder(int inStart, int inEnd, int postStart, int postEnd)
+{
+	if (inStart > inEnd || postStart > postEnd) return;
+	int root = postorder[postEnd];
+	int rootIdx = idx[root];
+	int leftSize = rootIdx - inStart; int rightSize = inEnd - rootIdx;
+	cout << root << " ";
+	GetPreOrder(inStart, rootIdx - 1, postStart, postStart + leftSize - 1);
+	GetPreOrder(rootIdx + 1, inEnd, postStart + leftSize, postEnd - 1);
 }
 int main()
 {
-	int N; cin >> N;
-	vector<Node> tree(26); 
-	for (int i = 0; i < N; i++) {
-		char data, left, right; cin >> data >> left >> right;
-		tree[data - 'A'].data = data;
-		if (left != '.') tree[data - 'A'].left = &tree[left - 'A'];
-		if (right != '.') tree[data - 'A'].right = &tree[right - 'A'];
-	}
-	Node* root = &tree[0];
-	preorder(root); cout << "\n";
-	inorder(root); cout << "\n";
-	postorder(root); cout << "\n";
+	ios_base::sync_with_stdio(false); cin.tie(NULL);
+	cin >> N;
+	for (int i = 1; i <= N; i++) { cin >> inorder[i]; idx[inorder[i]] = i; }
+	for (int i = 1; i <= N; i++) { cin >> postorder[i]; }
+	GetPreOrder(1, N, 1, N);
+	cout << "\n";
 }
+
+/*
+* 
+* inorder의 index 저장 (ex 1은 inorder에서 6번째에 있음)
+분할 정복을 통해 풀이
+https://donggoolosori.github.io/2020/10/15/boj-2263/
+*/

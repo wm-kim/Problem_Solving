@@ -7,7 +7,7 @@ using namespace std;
 int n, p, c, w;
 struct Edge { int to, w; };
 vector<Edge> graph[10001];
-int dist[10001], parent[10001];
+int dist[10001], pnt[10001];
 void bfs(int start)
 {
 	memset(dist, -1, sizeof(dist));
@@ -31,7 +31,7 @@ int main()
 		cin >> p >> c >> w;
 		graph[p].push_back({ c,w });
 		graph[c].push_back({ p,w });
-		parent[c] = p;
+		pnt[c] = p;
 	}
 	bfs(1); 
 	int start = 1;
