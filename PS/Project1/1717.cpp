@@ -43,18 +43,18 @@ int main()
 using namespace std;
 const int MAX = 1000001;
 int n, m;
-int pnt[MAX], rnk[MAX];
+int pre[MAX], rnk[MAX];
 int FindSet(int node) {
-    if (pnt[node] == node) return node;
-    return pnt[node] = FindSet(pnt[node]);
+    if (pre[node] == node) return node;
+    return pre[node] = FindSet(pre[node]);
 }
 void Union(int node1, int node2) {
     int root1 = FindSet(node1);
     int root2 = FindSet(node2);
     if (root1 == root2)  return;
-    if (rnk[root1] > rnk[root2]) pnt[root2] = root1;
+    if (rnk[root1] > rnk[root2]) pre[root2] = root1;
     else {
-        pnt[root1] = root2;
+        pre[root1] = root2;
         if (rnk[root1] == rnk[root2]) rnk[root2]++;
     }
 }
@@ -62,7 +62,7 @@ int main() {
     cin.tie(NULL); ios::sync_with_stdio(false);
     cin >> n >> m;
     for (int i = 0; i <= n; i++) {
-        pnt[i] = i; rnk[i] = 0;
+        pre[i] = i; rnk[i] = 0;
     }
     for (int i = 1; i <= m; i++) {
         int op, a, b;

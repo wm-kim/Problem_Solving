@@ -4,7 +4,7 @@
 #include <queue>
 #include <vector>
 using namespace std;
-int V, from, to, cost;
+int V, from, to, min_cost;
 struct Edge { int to, cost; };
 vector<Edge> graph[100001];
 int dist[100001];
@@ -34,8 +34,8 @@ int main()
 		while (1) {
 			cin >> to;
 			if (to == -1) break;
-			cin >> cost;
-			graph[from].push_back({ to, cost });
+			cin >> min_cost;
+			graph[from].push_back({ to, min_cost });
 		}
 	}
 	bfs(1);

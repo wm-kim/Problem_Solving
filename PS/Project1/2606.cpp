@@ -4,7 +4,7 @@
 using namespace std;
 vector<int> graph[101];
 bool dist[101] = { false };
-int n, e, cnt;
+int n, pre, cnt;
 void dfs(int v)
 {
 	dist[v] = true;
@@ -13,8 +13,8 @@ void dfs(int v)
 }
 int main()
 {
-	cin >> n >> e;
-	while (e--)
+	cin >> n >> pre;
+	while (pre--)
 	{
 		int from, to; cin >> from >> to;
 		graph[from].push_back(to); graph[to].push_back(from);

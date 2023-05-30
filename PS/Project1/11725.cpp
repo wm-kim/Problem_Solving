@@ -3,15 +3,15 @@
 #include <vector>
 using namespace std;
 int N;
-vector<int> graph[100001]; int pnt[100001];
+vector<int> graph[100001]; int pre[100001];
 void dfs(int start)
 {
 	for (int i = 0; i < graph[start].size(); i++)
 	{
 		int next = graph[start][i];
-		if (pnt[next] == 0)
+		if (pre[next] == 0)
 		{
-			pnt[next] = start;
+			pre[next] = start;
 			dfs(next);
 		}
 	}
@@ -25,10 +25,10 @@ int main()
 		graph[a].push_back(b);
 		graph[b].push_back(a);
 	}
-	pnt[1] = 1;
+	pre[1] = 1;
 	dfs(1);
 	for (int i = 2; i <= N; i++)
-		cout << pnt[i] << '\n';
+		cout << pre[i] << '\n';
 	return 0;
 }
 /*
@@ -47,5 +47,5 @@ int main()
 	}
 	dfs(1);
 	for (int i = 2; i <= N; i++)
-		cout << pnt[i] << '\n';
+		cout << pre[i] << '\n';
 }
