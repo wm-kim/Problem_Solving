@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 int arr[129][129]; int empty_cnt; int filled_cnt;
-void solve(int x, int y, int size)
+void constructSet(int x, int y, int size)
 {
 	if (size == 1) {
 		arr[y][x] ? filled_cnt++ : empty_cnt++;
@@ -12,8 +12,8 @@ void solve(int x, int y, int size)
         for (int j = x; j < x + size; j++)
             if (arr[i][j] != arr[y][x]) {
                 int n = size / 2;
-                solve(x, y, n); solve(x + n, y, n);
-                solve(x, y + n, n); solve(x + n, y + n, n);
+                constructSet(x, y, n); constructSet(x + n, y, n);
+                constructSet(x, y + n, n); constructSet(x + n, y + n, n);
                 return;
             }
 
@@ -23,6 +23,6 @@ int main()
 {
 	int n; cin >> n;
 	for (int y = 1; y <= n; ++y) for (int x = 1; x <= n; ++x) cin >> arr[y][x];
-	solve(1, 1, n);
+	constructSet(1, 1, n);
 	cout << empty_cnt << "\n" << filled_cnt << "\n";
 }
