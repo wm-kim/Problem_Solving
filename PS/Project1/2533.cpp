@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
-int n, u, v;
+int N, u, s;
 vector<int> graph[1000001];
 int dp[1000001][2];
 bool visited[1000001];
@@ -27,12 +27,12 @@ void dfs(int start, int parent)
 int main()
 {
 	cin.tie(NULL); ios_base::sync_with_stdio(false);
-	cin >> n;
-	for (int i = 0; i < n - 1; i++)
+	cin >> N;
+	for (int i = 0; i < N - 1; i++)
 	{
-		cin >> u >> v;
-		graph[u].push_back(v);
-		graph[v].push_back(u);
+		cin >> u >> s;
+		graph[u].push_back(s);
+		graph[s].push_back(u);
 	}
 	dfs(1, 0);
 	cout << min(dp[1][0], dp[1][1]);

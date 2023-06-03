@@ -4,7 +4,7 @@
 #include <vector>
 const int N = 8;
 using namespace std;
-vector<int> v(N), pm(N);
+vector<int> s(N), pm(N);
 bool visited[N];
 int ans;
 bool check(double a1, double a2, double a3)
@@ -36,7 +36,7 @@ void permutation(int cnt)
 		if (!visited[i])
 		{
 			visited[i] = true;
-			pm[cnt] = v[i];
+			pm[cnt] = s[i];
 			permutation(cnt + 1);
 			visited[i] = false;
 		}
@@ -46,7 +46,7 @@ void permutation(int cnt)
 int main()
 {
 	cin.tie(0); cout.tie(0); ios::sync_with_stdio(0);
-	for (int i = 0; i < N; i++) cin >> v[i];
+	for (int i = 0; i < N; i++) cin >> s[i];
 	permutation(0);
 	cout << ans;
 }

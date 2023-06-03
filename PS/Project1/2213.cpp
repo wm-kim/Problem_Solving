@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 // dp[i][0]: 정점 i를 선택하지 않은 경우, dp[i][1]: 정점 i를 선택한 경우
-int n; int w[10001], dp[10001][2];
+int N; int w[10001], dp[10001][2];
 bool visited[10001];
 vector<int> graph[10001], ans;
 
@@ -41,8 +41,8 @@ void constructSet(int start, int parent, bool isParentSelected)
 int main()
 {
 	cin.tie(NULL); cin.sync_with_stdio(false);
-	cin >> n; for (int i = 1; i <= n; i++) cin >> w[i];
-	for (int i = 0; i < n - 1; i++)
+	cin >> N; for (int i = 1; i <= N; i++) cin >> w[i];
+	for (int i = 0; i < N - 1; i++)
 	{
 		int a, b; cin >> a >> b;
 		graph[a].push_back(b);
@@ -60,6 +60,7 @@ int main()
 // tree_dp + 역추적
 
 /*
-함수 내에서 자식 노드를 선택하거나 선택하지 않는 경우를 재귀 호출할 때, 이미 선택된 부모 노드가 있는 경우 해당 부모 노드를 선택하지 않는 것이 맞습니다. 
+함수 내에서 자식 노드를 선택하거나 선택하지 않는 경우를 재귀 호출할 때,
+이미 선택된 부모 노드가 있는 경우 해당 부모 노드를 선택하지 않는 것이 맞습니다. 
 이를 보장하기 위해서는 재귀 호출 시에 부모 노드를 인자로 넘겨줘서 부모 노드를 선택하지 않는 경우에만 자식 노드를 선택하도록 제한할 수 있습니다.
 */

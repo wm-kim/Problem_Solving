@@ -5,7 +5,7 @@
 #define INF 1e9
 #define MAX 2000
 using namespace std;
-int T, n, m, t, s, g, h, a, b, d, x;
+int T, N, m, t, s, g, h, a, b, d, x;
 struct Edge { int to, cost; };
 vector<Edge> graph[MAX + 1];
 int dist[MAX + 1]; bool visited[MAX + 1];
@@ -13,8 +13,8 @@ void Dijkstra(int start)
 {
 	priority_queue<pair<int, int>> pq;
 	pq.push({ 0, start });
-	fill(visited, visited + n + 1, false);
-	fill(dist, dist + n + 1, INF);
+	fill(visited, visited + N + 1, false);
+	fill(dist, dist + N + 1, INF);
 	dist[start] = 0;
 	
 	while (!pq.empty())
@@ -39,8 +39,8 @@ int main()
 	cin >> T;
 	while (T--)
 	{
-		cin >> n >> m >> t >> s >> g >> h;
-		for (int i = 1; i <= n; i++) graph[i].clear();
+		cin >> N >> m >> t >> s >> g >> h;
+		for (int i = 1; i <= N; i++) graph[i].clear();
 		while (m--) 
 		{ 
 			cin >> a >> b >> d; 

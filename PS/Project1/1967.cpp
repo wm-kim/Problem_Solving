@@ -4,7 +4,7 @@
 #include <cstring>
 #include <vector>
 using namespace std;
-int n, p, c, w;
+int N, p, c, w;
 struct Edge { int to, w; };
 vector<Edge> graph[10001];
 int dist[10001], pre[10001];
@@ -25,8 +25,8 @@ void bfs(int start)
 }
 int main()
 {
-	cin >> n;
-	for (int i = 0; i < n - 1; i++)
+	cin >> N;
+	for (int i = 0; i < N - 1; i++)
 	{
 		cin >> p >> c >> w;
 		graph[p].push_back({ c,w });
@@ -35,11 +35,11 @@ int main()
 	}
 	bfs(1); 
 	int start = 1;
-	for (int i = 2; i <= n; i++)
+	for (int i = 2; i <= N; i++)
 		if (dist[i] > dist[start]) start = i;
 	bfs(start);
 	int ans = 0;
-	for (int i = 1; i <= n; i++)
+	for (int i = 1; i <= N; i++)
 		ans = max(ans, dist[i]);
 	cout << ans;
 }

@@ -7,7 +7,7 @@ const int INF = 2147483647;
 int N, M, X, Y; double ans;
 struct Pos { int x, y; };
 struct Line { int idx1, idx2; double dist; };
-vector<Pos> v;
+vector<Pos> s;
 vector<Line> lines;
 int parent[1001], rnk[1001];
 double dist(Pos a, Pos b) { return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2)); }
@@ -44,11 +44,11 @@ int main()
 {
 	cin.tie(NULL); ios::sync_with_stdio(false);
 	cin >> N >> M;
-	for (int i = 0; i < N; i++) { cin >> X >> Y; v.push_back({ X, Y }); }
+	for (int i = 0; i < N; i++) { cin >> X >> Y; s.push_back({ X, Y }); }
 	for (int i = 1; i <= N; i++) parent[i] = i;
-	for (int i = 0; i < v.size(); i++)
-		for (int j = i + 1; j < v.size(); j++)
-			lines.push_back({ i + 1, j + 1, dist(v[i], v[j]) });
+	for (int i = 0; i < s.size(); i++)
+		for (int j = i + 1; j < s.size(); j++)
+			lines.push_back({ i + 1, j + 1, dist(s[i], s[j]) });
 	for (int i = 0; i < M; i++)
 	{
 		int a, b; cin >> a >> b;

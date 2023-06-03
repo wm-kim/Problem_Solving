@@ -3,11 +3,11 @@
 #include <cmath>
 #include <vector>
 using namespace std;
-int n; 
+int N; 
 double ans;
 struct Pos { int idx; float x, y; };
 struct Line { int idx1, idx2; float dist; };
-vector<Pos> v;
+vector<Pos> s;
 vector<Line> lines;
 int parent[101], rnk[101];
 int find(int x)
@@ -43,16 +43,16 @@ void kruskal()
 int main()
 {
 	cin.tie(NULL); ios::sync_with_stdio(false);
-	cin >> n;
-	for (int i = 0; i < n; i++)
+	cin >> N;
+	for (int i = 0; i < N; i++)
 	{
 		float x, y; cin >> x >> y;
-		v.push_back({ i, x, y });
+		s.push_back({ i, x, y });
 	}
-	for (int i = 1; i <= n; i++) parent[i] = i;
-	for (int i = 0; i < v.size(); i++)
-		for (int j = i + 1; j < v.size(); j++)
-			lines.push_back({ i, j, dist(v[i], v[j]) });
+	for (int i = 1; i <= N; i++) parent[i] = i;
+	for (int i = 0; i < s.size(); i++)
+		for (int j = i + 1; j < s.size(); j++)
+			lines.push_back({ i, j, dist(s[i], s[j]) });
 	kruskal();
 	cout.precision(2);
 	cout << fixed << ans;

@@ -6,7 +6,7 @@
 using namespace std;
 const int MAX = 1001;
 const int INF = 1000000;
-int n, m, start, finish;
+int N, m, start, finish;
 struct Bus { int to, cost; };
 vector<Bus> city[MAX];
 int dist[MAX], pre[MAX];
@@ -39,7 +39,7 @@ int main()
 {
     cin.tie(NULL);
     ios_base::sync_with_stdio(false);
-    cin >> n >> m;
+    cin >> N >> m;
     for (int i = 0; i < m; i++)
     {
         int from, to, cost;

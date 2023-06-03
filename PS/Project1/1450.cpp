@@ -4,7 +4,7 @@
 typedef long long ll;
 using namespace std;
 int N, C; 
-vector<ll> v;
+vector<ll> s;
 void dfs(int start, int end, vector<ll>& group, ll sum)
 {
 	if (start > end)
@@ -15,15 +15,15 @@ void dfs(int start, int end, vector<ll>& group, ll sum)
 	else
 	{
 		dfs(start + 1, end, group, sum);
-		dfs(start + 1, end, group, sum + v[start]);
+		dfs(start + 1, end, group, sum + s[start]);
 	}
 }
 
 int main()
 {
 	cin >> N >> C;
-	v.resize(N, 0);
-	for (int i = 0; i < N; i++) cin >> v[i];
+	s.resize(N, 0);
+	for (int i = 0; i < N; i++) cin >> s[i];
 	vector<ll> group1, group2;
 	dfs(0, N / 2, group1, 0);
 	dfs(N / 2 + 1, N - 1, group2, 0);

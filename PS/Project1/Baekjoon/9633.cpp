@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int n; int c = 0;
+int N; int c = 0;
 int chess[15][15] = { 0, };
 
 // My Answer

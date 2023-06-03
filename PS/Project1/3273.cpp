@@ -2,14 +2,14 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
-int n, x, sum, cnt;
+int N, x, sum, cnt;
 int main()
 {
-	cin >> n; vector<int> v(n);
-	for (int i = 0; i < n; i++) cin >> v[i];
+	cin >> N; vector<int> v(N);
+	for (int i = 0; i < N; i++) cin >> v[i];
 	sort(v.begin(), v.end());
 	cin >> x;
-	int i = 0, j = n - 1;
+	int i = 0, j = N - 1;
 	while (i < j)
 	{
 		sum = v[i] + v[j];

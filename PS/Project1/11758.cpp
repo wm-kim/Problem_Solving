@@ -6,7 +6,7 @@ using namespace std;
 struct Point { double x, y; };
 int N;
 double ans;
-vector<Point> v;
+vector<Point> s;
 double Product(const Point& p1, const Point& p2, const Point& p3)
 {
     double result = p1.x * p2.y + p2.x * p3.y + p3.x * p1.y;

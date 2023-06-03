@@ -6,7 +6,7 @@ using namespace std;
 struct Point { double x, y; };
 int N;
 double ans;
-vector<Point> v;
+vector<Point> s;
 double Product(const Point& p1, const Point& p2, const Point& p3)
 {
     double result = p1.x * p2.y + p2.x * p3.y + p3.x * p1.y;
@@ -22,10 +22,10 @@ int main()
     {
         Point p;
         cin >> p.x >> p.y;
-        v.push_back(p);
+        s.push_back(p);
     }
     for (int i = 1; i < N - 1; i++)
-        ans += Product(v[0], v[i], v[i + 1]);
+        ans += Product(s[0], s[i], s[i + 1]);
     cout << fixed;
     cout.precision(1);
     cout << abs(ans) << '\n';

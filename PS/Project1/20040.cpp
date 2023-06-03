@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
-int n, m, a, b;
+int N, m, a, b;
 int parent[500001], rnk[500001];
 int find(int x)
 {
@@ -22,8 +22,8 @@ void merge(int x, int y)
 int main()
 {
 	cin.tie(NULL); ios::sync_with_stdio(false);
-	cin >> n >> m;
-	for (int i = 0; i < n; i++) parent[i] = i;
+	cin >> N >> m;
+	for (int i = 0; i < N; i++) parent[i] = i;
 	for (int i = 1; i <= m; i++)
 	{
 		cin >> a >> b;

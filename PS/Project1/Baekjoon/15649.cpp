@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int n, m;
+int N, m;
 vector<int> ans;
 bool dist[9];
 
@@ -12,7 +12,7 @@ void backtracking(int depth)
 		for (int i = 0; i < m; i++) cout << ans[i] << " ";
 		cout << "\n"; return;
 	}
-	for (int i = 1; i <= n; i++)
+	for (int i = 1; i <= N; i++)
 	{
 		if (!dist[i])
 		{
@@ -24,6 +24,6 @@ void backtracking(int depth)
 }
 
 int main() {
-	cin >> n >> m;
+	cin >> N >> m;
 	backtracking(0);
 }

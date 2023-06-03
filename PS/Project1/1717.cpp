@@ -42,7 +42,7 @@ int main()
 #include <algorithm>
 using namespace std;
 const int MAX = 1000001;
-int n, m;
+int N, m;
 int pre[MAX], rnk[MAX];
 int FindSet(int node) {
     if (pre[node] == node) return node;
@@ -60,8 +60,8 @@ void Union(int node1, int node2) {
 }
 int main() {
     cin.tie(NULL); ios::sync_with_stdio(false);
-    cin >> n >> m;
-    for (int i = 0; i <= n; i++) {
+    cin >> N >> m;
+    for (int i = 0; i <= N; i++) {
         pre[i] = i; rnk[i] = 0;
     }
     for (int i = 1; i <= m; i++) {

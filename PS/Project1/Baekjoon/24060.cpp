@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int* arr, *tmp;
-static int n, m, ans, cnt = 0;
+static int N, m, ans, cnt = 0;
 
 void merge(int arr[], int left, int mid, int right)
 {
@@ -30,10 +30,10 @@ void mergeSort(int arr[], int left, int right)
 
 int main()
 {
-	cin >> n >> m;
-	arr = new int[n]; tmp = new int[n+1];
-	for (int i = 0; i < n; i++) cin >> arr[i];
-	mergeSort(arr, 0, n - 1);
+	cin >> N >> m;
+	arr = new int[N]; tmp = new int[N+1];
+	for (int i = 0; i < N; i++) cin >> arr[i];
+	mergeSort(arr, 0, N - 1);
 	if (cnt < m) cout << -1 << "\n";
 	else cout << ans << "\n";
     delete[] arr; delete[] tmp;

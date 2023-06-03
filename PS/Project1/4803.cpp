@@ -5,7 +5,7 @@
 using namespace std;
 bool visited[501];
 vector<int> graph[501];
-int n, m, idx;
+int N, m, idx;
 bool IsCycle(int node, int parent)
 {
 	visited[node] = true;
@@ -23,7 +23,7 @@ int IsTree()
 {
 	memset(visited, false, sizeof(visited));
 	int cnt = 0;
-	for (int i = 1; i <= n; i++)
+	for (int i = 1; i <= N; i++)
 	{
 		if (!visited[i])
 			if (!IsCycle(i, 0)) cnt++;
@@ -35,9 +35,9 @@ int main()
 {
 	while (1)
 	{
-		cin >> n >> m;
-		if (n == 0 && m == 0) break;
-		for (int i = 1; i <= n; i++) graph[i].clear();
+		cin >> N >> m;
+		if (N == 0 && m == 0) break;
+		for (int i = 1; i <= N; i++) graph[i].clear();
 		for (int i = 0; i < m; i++)
 		{
 			int a, b; cin >> a >> b;

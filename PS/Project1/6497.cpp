@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
-int m, n, x, y, z;
+int m, N, x, y, z;
 struct Edge { int from, to, cost; };
 vector<Edge> edges, mst;
 int pre[200001], rnk[200001];
@@ -36,13 +36,13 @@ int main()
 	cin.tie(NULL); ios::sync_with_stdio(false);
 	while (1)
 	{
-		cin >> m >> n;
-		if (m == 0 && n == 0) break;
+		cin >> m >> N;
+		if (m == 0 && N == 0) break;
 
 		for (int i = 0; i < m; i++) { pre[i] = i; rnk[i] = 0; }
 		edges.clear(); mst.clear();
 		int total_cost = 0;
-		for (int i = 0; i < n; i++)
+		for (int i = 0; i < N; i++)
 		{
 			cin >> x >> y >> z;
 			edges.push_back({ x, y, z });

@@ -2,20 +2,20 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-int n; int s[20][20];
+int N; int s[20][20];
 vector<int> start, link;
 int m = 1000000;
 
 void bt(int d)
 {
-	if (d == n)
+	if (d == N)
 	{
-		if ((int)start.size() != n / 2 || (int)link.size() != n / 2)
+		if ((int)start.size() != N / 2 || (int)link.size() != N / 2)
 			return;
 
 		int sum_start = 0, sum_link = 0;
-		for (int i = 0; i < n / 2; i++) {
-			for (int j = 0; j < n / 2; j++) {
+		for (int i = 0; i < N / 2; i++) {
+			for (int j = 0; j < N / 2; j++) {
 				if (i == j) continue;
 				sum_start += s[start[i]][start[j]];
 				sum_link += s[link[i]][link[j]];
@@ -31,9 +31,9 @@ void bt(int d)
 
 int main()
 {
-	cin >> n; 
-	for (int i = 0; i < n; i++) 
-		for (int j = 0; j < n; j++) 
+	cin >> N; 
+	for (int i = 0; i < N; i++) 
+		for (int j = 0; j < N; j++) 
 			cin >> s[i][j];
 	bt(0); 
 	cout << m << "\n";
