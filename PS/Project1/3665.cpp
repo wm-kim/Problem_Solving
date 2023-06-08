@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 int T, n, m, a, b, inDegree[501];
-vector<int> graph[501];
+vector<int> adj[501];
 void topologySort()
 {
 	int result[501];
@@ -16,9 +16,9 @@ void topologySort()
 		int cur = q.front(); q.pop();
 		result[i] = cur;
 		int cnt = 0;
-		for (int j = 0; j < graph[cur].size(); j++)
+		for (int j = 0; j < adj[cur].size(); j++)
 		{
-			int next = graph[cur][j];
+			int next = adj[cur][j];
 			if (--inDegree[next] == 0) {
 				cnt++; q.push(next);
 			}
@@ -35,28 +35,28 @@ int main()
 	while (T--)
 	{
 		cin >> n;
-		for (int i = 1; i <= n; i++) { graph[i].clear(); inDegree[i] = 0; }
+		for (int i = 1; i <= n; i++) { adj[i].clear(); inDegree[i] = 0; }
 		vector<int> team(n + 1);
 		for (int i = 1; i <= n; i++) cin >> team[i];
 		for (int i = 1; i < n; i++) 
 			for (int j = i + 1; j <= n; j++) {
-				graph[team[i]].push_back(team[j]);
+				adj[team[i]].push_back(team[j]);
 				inDegree[team[j]]++;
 			}
 		cin >> m;
 		for (int i = 0; i < m; i++)
 		{
 			cin >> a >> b;
-			if (find(graph[a].begin(), graph[a].end(), b) != graph[a].end())
+			if (find(adj[a].begin(), adj[a].end(), b) != adj[a].end())
 			{
-				graph[a].erase(find(graph[a].begin(), graph[a].end(), b));
-				graph[b].push_back(a);
+				adj[a].erase(find(adj[a].begin(), adj[a].end(), b));
+				adj[b].push_back(a);
 				inDegree[a]++; inDegree[b]--;
 			}
 			else
 			{
-				graph[b].erase(find(graph[b].begin(), graph[b].end(), a));
-				graph[a].push_back(b);
+				adj[b].erase(find(adj[b].begin(), adj[b].end(), a));
+				adj[a].push_back(b);
 				inDegree[b]++; inDegree[a]--;
 			}
 		}

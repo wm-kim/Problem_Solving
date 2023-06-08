@@ -9,19 +9,19 @@ struct Pos { int idx; float x, y; };
 struct Line { int idx1, idx2; float dist; };
 vector<Pos> s;
 vector<Line> lines;
-int parent[101], rnk[101];
+int st[101], rnk[101];
 int find(int x)
 {
-	if (parent[x] == x) return x;
-	else return parent[x] = find(parent[x]);
+	if (st[x] == x) return x;
+	else return st[x] = find(st[x]);
 }
 void merge(int x, int y)
 {
 	x = find(x); y = find(y);
 	if (x == y) return;
-	if (rnk[x] > rnk[y]) parent[y] = x;
+	if (rnk[x] > rnk[y]) st[y] = x;
 	else {
-		parent[x] = y;
+		st[x] = y;
 		if (rnk[x] == rnk[y]) rnk[y]++;
 	}
 }
@@ -49,7 +49,7 @@ int main()
 		float x, y; cin >> x >> y;
 		s.push_back({ i, x, y });
 	}
-	for (int i = 1; i <= N; i++) parent[i] = i;
+	for (int i = 1; i <= N; i++) st[i] = i;
 	for (int i = 0; i < s.size(); i++)
 		for (int j = i + 1; j < s.size(); j++)
 			lines.push_back({ i, j, dist(s[i], s[j]) });

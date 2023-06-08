@@ -2,20 +2,20 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
-int T, N, a, b, u, v, parent[10001];
+int T, N, a, b, u, v, st[10001];
 bool visited[10001];
 void lca(int a, int b)
 {
 	visited[a] = true;
-	while (parent[a] != a)
+	while (st[a] != a)
 	{
-		a = parent[a];
+		a = st[a];
 		visited[a] = true;
 	}
 	while (1)
 	{
 		if (visited[b]) { cout << b << "\n"; break; }
-		b = parent[b];
+		b = st[b];
 	}
 }
 int main()
@@ -25,8 +25,8 @@ int main()
 	while (T--)
 	{
 		cin >> N;
-		for (int i = 1; i <= N; i++) { visited[i] = false; parent[i] = i; }
-		for (int i = 0; i < N - 1; i++) { cin >> a >> b; parent[b] = a; }
+		for (int i = 1; i <= N; i++) { visited[i] = false; st[i] = i; }
+		for (int i = 0; i < N - 1; i++) { cin >> a >> b; st[b] = a; }
 		cin >> u >> v;
 		lca(u, v);
 	}

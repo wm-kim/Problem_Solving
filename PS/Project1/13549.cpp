@@ -6,7 +6,7 @@
 using namespace std;
 int N, K, ans;
 struct Edge { int to, cost; };
-vector<Edge> graph[MAX + 1];
+vector<Edge> adj[MAX + 1];
 int dist[MAX + 1];
 bool visited[MAX + 1];
 void Dijkstra(int start)
@@ -20,10 +20,10 @@ void Dijkstra(int start)
 		if (visited[cur]) continue;
 		visited[cur] = true;
 		if (cur == K) return;
-		for (int i = 0; i < graph[cur].size(); i++)
+		for (int i = 0; i < adj[cur].size(); i++)
 		{
-			int next = graph[cur][i].to;
-			int cost = graph[cur][i].cost;
+			int next = adj[cur][i].to;
+			int cost = adj[cur][i].cost;
 			if (dist[next] > dist[cur] + cost)
 			{
 				dist[next] = dist[cur] + cost;
@@ -39,9 +39,9 @@ int main()
 	cin >> N >> K;
 	for (int i = 0; i <= MAX; i++)
 	{
-		if (i + 1 <= MAX) graph[i].push_back({ i + 1, 1 });
-		if (i - 1 >= 0) graph[i].push_back({ i - 1, 1 });
-		if (i * 2 <= MAX) graph[i].push_back({ i * 2, 0 });
+		if (i + 1 <= MAX) adj[i].push_back({ i + 1, 1 });
+		if (i - 1 >= 0) adj[i].push_back({ i - 1, 1 });
+		if (i * 2 <= MAX) adj[i].push_back({ i * 2, 0 });
 	}
 	Dijkstra(N); cout << dist[K];
 }

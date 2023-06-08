@@ -5,7 +5,7 @@ using namespace std;
 // dp[i][0]: 정점 i를 선택하지 않은 경우, dp[i][1]: 정점 i를 선택한 경우
 int N; int w[10001], dp[10001][2];
 bool visited[10001];
-vector<int> graph[10001], ans;
+vector<int> adj[10001], ans;
 
 void dfs(int start, int parent)
 {
@@ -13,9 +13,9 @@ void dfs(int start, int parent)
 	dp[start][0] = 0;
 	dp[start][1] = w[start];
 	
-	for (int i = 0; i < graph[start].size(); i++)
+	for (int i = 0; i < adj[start].size(); i++)
 	{
-		int next = graph[start][i];
+		int next = adj[start][i];
 		if (next != parent && !visited[next])
 		{
 			dfs(next, start);
@@ -30,11 +30,11 @@ void constructSet(int start, int parent, bool isParentSelected)
 	if (!isParentSelected && dp[start][1] > dp[start][0])
 	{
 		ans.push_back(start);
-		for (int child : graph[start])
+		for (int child : adj[start])
 			if (child != parent) constructSet(child, start, true);
 	}
 	else // isParentSelected || dp[start][1] <= dp[start][0]
-		for (int child : graph[start])
+		for (int child : adj[start])
 			if (child != parent) constructSet(child, start, false);
 }
 
@@ -45,8 +45,8 @@ int main()
 	for (int i = 0; i < N - 1; i++)
 	{
 		int a, b; cin >> a >> b;
-		graph[a].push_back(b);
-		graph[b].push_back(a);
+		adj[a].push_back(b);
+		adj[b].push_back(a);
 	}
 	dfs(1, 0);
 	cout << max(dp[1][0], dp[1][1]) << '\n';

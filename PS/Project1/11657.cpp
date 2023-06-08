@@ -5,7 +5,7 @@
 using namespace std;
 int N, M, A, B, C;
 struct Edge { int from, to, cost; };
-vector<Edge> graph;
+vector<Edge> adj;
 long long dist[501]; 
 bool BellmanFord(int start)
 {
@@ -14,17 +14,17 @@ bool BellmanFord(int start)
 
 	for (int i = 1; i <= N; i++)
 	{
-		for (int j = 0; j < graph.size(); j++)
+		for (int j = 0; j < adj.size(); j++)
 		{
-			auto [from, to, cost] = graph[j];
+			auto [from, to, cost] = adj[j];
 			if (dist[from] != INF && dist[to] > dist[from] + cost)
 				dist[to] = dist[from] + cost;
 		}
 	}
 
-	for (int i = 0; i < graph.size(); i++)
+	for (int i = 0; i < adj.size(); i++)
 	{
-		auto [from, to, cost] = graph[i];
+		auto [from, to, cost] = adj[i];
 		if (dist[from] != INF && dist[to] > dist[from] + cost)
 			return false;
 	}
@@ -36,7 +36,7 @@ int main()
 	while (M--)
 	{
 		cin >> A >> B >> C;
-		graph.push_back({ A, B, C });
+		adj.push_back({ A, B, C });
 	}
 	if (BellmanFord(1))
 	{

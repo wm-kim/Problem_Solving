@@ -6,7 +6,7 @@
 using namespace std;
 int V, from, to, min_cost;
 struct Edge { int to, cost; };
-vector<Edge> graph[100001];
+vector<Edge> adj[100001];
 int dist[100001];
 void bfs(int start) {
 	memset(dist, -1, sizeof(dist));
@@ -16,7 +16,7 @@ void bfs(int start) {
 	while (!q.empty()) {
 		int cur = q.front();
 		q.pop();
-		for (auto& next : graph[cur]) {
+		for (auto& next : adj[cur]) {
 			if (dist[next.to] == -1) {
 				dist[next.to] = dist[cur] + next.cost;
 				q.push(next.to);
@@ -35,7 +35,7 @@ int main()
 			cin >> to;
 			if (to == -1) break;
 			cin >> min_cost;
-			graph[from].push_back({ to, min_cost });
+			adj[from].push_back({ to, min_cost });
 		}
 	}
 	bfs(1);

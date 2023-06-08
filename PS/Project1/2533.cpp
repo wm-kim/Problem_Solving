@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 int N, u, s;
-vector<int> graph[1000001];
+vector<int> adj[1000001];
 int dp[1000001][2];
 bool visited[1000001];
 void dfs(int start, int parent)
@@ -12,9 +12,9 @@ void dfs(int start, int parent)
 	dp[start][0] = 0;
 	dp[start][1] = 1;
 	
-	for (int i = 0; i < graph[start].size(); i++)
+	for (int i = 0; i < adj[start].size(); i++)
 	{
-		int next = graph[start][i];
+		int next = adj[start][i];
 		if (next != parent && !visited[next])
 		{
 			dfs(next, start);
@@ -31,8 +31,8 @@ int main()
 	for (int i = 0; i < N - 1; i++)
 	{
 		cin >> u >> s;
-		graph[u].push_back(s);
-		graph[s].push_back(u);
+		adj[u].push_back(s);
+		adj[s].push_back(u);
 	}
 	dfs(1, 0);
 	cout << min(dp[1][0], dp[1][1]);

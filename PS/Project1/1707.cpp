@@ -75,7 +75,7 @@ int main()
 using namespace std;
 const int MAX = 20001;
 int K, V, E, color[MAX];
-vector<int> graph[MAX];
+vector<int> adj[MAX];
 
 bool bfs(int start) {
 	queue<int> q;
@@ -83,8 +83,8 @@ bool bfs(int start) {
 	q.push(start);
 	while (!q.empty()) {
 		int cur = q.front(); q.pop();
-		for (int i = 0; i < graph[cur].size(); i++) {
-			int next = graph[cur][i];
+		for (int i = 0; i < adj[cur].size(); i++) {
+			int next = adj[cur][i];
 			if (color[next] == 0) {
 				color[next] = -color[cur];
 				q.push(next);
@@ -104,11 +104,11 @@ int main() {
 	while (K--) {
 		cin >> V >> E;
 		for (int i = 1; i <= V; i++) {
-			graph[i].clear(); color[i] = 0;
+			adj[i].clear(); color[i] = 0;
 		}
 		for (int i = 0; i < E; i++) {
 			int u, v; cin >> u >> v;
-			graph[u].push_back(v); graph[v].push_back(u);
+			adj[u].push_back(v); adj[v].push_back(u);
 		}
 		bool bipartite = true;
 		for (int i = 1; i <= V; i++) {

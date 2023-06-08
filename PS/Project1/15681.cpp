@@ -3,14 +3,14 @@
 #include <vector>
 using namespace std;
 int N, R, Q, U, V;
-vector<int> graph[100001]; 
+vector<int> adj[100001]; 
 bool visited[100001];
 int sizeOfSubtree[100001];
 void dfs(int cur, int parent)
 {
 	visited[cur] = true;
 	sizeOfSubtree[cur] = 1;
-	for (int next : graph[cur])
+	for (int next : adj[cur])
 	{
 		if (next == parent) continue;
 		if (!visited[next])
@@ -27,8 +27,8 @@ int main()
 	for (int i = 0; i < N - 1; i++)
 	{
 		cin >> U >> V;
-		graph[U].push_back(V);
-		graph[V].push_back(U);
+		adj[U].push_back(V);
+		adj[V].push_back(U);
 	}
 	dfs(R, -1);
 	for (int i = 0; i < Q; i++)

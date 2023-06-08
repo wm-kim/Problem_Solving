@@ -4,17 +4,17 @@
 using namespace std;
 typedef pair<double, double> Pos;
 struct Edge { Pos from, to; };
-int parent[3001]; int group_size[3001];
+int st[3001]; int group_size[3001];
 vector<Edge> edges;
 int find(int x) {
-	if (parent[x] == x) return x;
-	return parent[x] = find(parent[x]);
+	if (st[x] == x) return x;
+	return st[x] = find(st[x]);
 }
 void merge(int x, int y) {
 	x = find(x); y = find(y);
 	if (x == y) return;
 	if (group_size[x] < group_size[y]) swap(x, y);
-	parent[y] = x;
+	st[y] = x;
 	group_size[x] += group_size[y];
 }
 double crossProduct(const Pos& p1, const Pos& p2, const Pos& p3)
@@ -47,7 +47,7 @@ int main()
 	}
 	for (int i = 0; i < N; i++)
 	{
-		parent[i] = i; group_size[i] = 1;
+		st[i] = i; group_size[i] = 1;
 		for (int j = 0; j < i; j++)
 		{
 			if (isIntersect(edges[i].from, edges[i].to, edges[j].from, edges[j].to))
@@ -57,7 +57,7 @@ int main()
 	int group_cnt = 0;
 	for (int i = 0; i < N; i++)
 	{
-		if (parent[i] == i) group_cnt++;
+		if (st[i] == i) group_cnt++;
 		max_size = max(max_size, group_size[i]);
 	}
 	cout << group_cnt << "\n" << max_size;

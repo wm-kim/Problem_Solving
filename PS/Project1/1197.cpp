@@ -6,7 +6,7 @@ const int INF = 2147483647;
 using namespace std;
 struct Edge { int to, w; };
 int V, E, A, B, C; long long ans;
-vector<Edge> graph[10001];
+vector<Edge> adj[10001];
 vector<int> mst;
 int min_cost[10001], pre[10001];
 bool inMST[10001];
@@ -28,7 +28,7 @@ void Prim()
 			mst.push_back(pre[cur]);
 			ans += min_cost[cur];
 		}
-		for (Edge& edge : graph[cur])
+		for (Edge& edge : adj[cur])
 		{
 			if (!inMST[edge.to] && min_cost[edge.to] > edge.w)
 			{
@@ -51,8 +51,8 @@ int main()
 	for (int i = 0; i < E; i++)
 	{
 		cin >> A >> B >> C;
-		graph[A].push_back({ B, C });
-		graph[B].push_back({ A, C });
+		adj[A].push_back({ B, C });
+		adj[B].push_back({ A, C });
 	}
 	Prim();
 	cout << ans << "\n";

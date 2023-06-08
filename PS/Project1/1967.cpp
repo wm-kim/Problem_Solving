@@ -6,7 +6,7 @@
 using namespace std;
 int N, p, c, w;
 struct Edge { int to, w; };
-vector<Edge> graph[10001];
+vector<Edge> adj[10001];
 int dist[10001], pre[10001];
 void bfs(int start)
 {
@@ -15,7 +15,7 @@ void bfs(int start)
 	dist[start] = 0;
 	while (!q.empty()) {
 		int cur = q.front(); q.pop();
-		for (Edge e : graph[cur]) {
+		for (Edge e : adj[cur]) {
 			if (dist[e.to] == -1) {
 				dist[e.to] = dist[cur] + e.w;
 				q.push(e.to);
@@ -29,8 +29,8 @@ int main()
 	for (int i = 0; i < N - 1; i++)
 	{
 		cin >> p >> c >> w;
-		graph[p].push_back({ c,w });
-		graph[c].push_back({ p,w });
+		adj[p].push_back({ c,w });
+		adj[c].push_back({ p,w });
 		pre[c] = p;
 	}
 	bfs(1); 

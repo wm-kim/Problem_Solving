@@ -3,12 +3,12 @@
 #include <vector>
 using namespace std;
 int N;
-vector<int> graph[100001]; int pre[100001];
+vector<int> adj[100001]; int pre[100001];
 void dfs(int start)
 {
-	for (int i = 0; i < graph[start].size(); i++)
+	for (int i = 0; i < adj[start].size(); i++)
 	{
-		int next = graph[start][i];
+		int next = adj[start][i];
 		if (pre[next] == 0)
 		{
 			pre[next] = start;
@@ -22,8 +22,8 @@ int main()
 	for (int i = 0; i < N - 1; i++)
 	{
 		int a, b; cin >> a >> b;
-		graph[a].push_back(b);
-		graph[b].push_back(a);
+		adj[a].push_back(b);
+		adj[b].push_back(a);
 	}
 	pre[1] = 1;
 	dfs(1);
@@ -42,8 +42,8 @@ int main()
 	for (int i = 0; i < N - 1; i++)
 	{
 		int a, b; cin >> a >> b;
-		graph[a].push_back(b);
-		graph[b].push_back(a);
+		adj[a].push_back(b);
+		adj[b].push_back(a);
 	}
 	dfs(1);
 	for (int i = 2; i <= N; i++)

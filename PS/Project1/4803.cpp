@@ -4,14 +4,14 @@
 #include <vector>
 using namespace std;
 bool visited[501];
-vector<int> graph[501];
+vector<int> adj[501];
 int N, m, idx;
 bool IsCycle(int node, int parent)
 {
 	visited[node] = true;
-	for (int i = 0; i < graph[node].size(); i++)
+	for (int i = 0; i < adj[node].size(); i++)
 	{
-		int next = graph[node][i];
+		int next = adj[node][i];
 		if (next == parent) continue;
 		if (visited[next]) return true;
 		if (IsCycle(next, node)) return true;
@@ -37,12 +37,12 @@ int main()
 	{
 		cin >> N >> m;
 		if (N == 0 && m == 0) break;
-		for (int i = 1; i <= N; i++) graph[i].clear();
+		for (int i = 1; i <= N; i++) adj[i].clear();
 		for (int i = 0; i < m; i++)
 		{
 			int a, b; cin >> a >> b;
-			graph[a].push_back(b);
-			graph[b].push_back(a);
+			adj[a].push_back(b);
+			adj[b].push_back(a);
 		}
 		int cnt = IsTree();
 		idx++;

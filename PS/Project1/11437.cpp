@@ -4,11 +4,11 @@
 #include <vector>
 using namespace std;
 int N, M, a, b, st[17][100001], depth[100001];
-vector<int> graph[100001];
+vector<int> adj[100001];
 void dfs(int cur, int dep)
 {
 	depth[cur] = dep;
-	for (int next : graph[cur])
+	for (int next : adj[cur])
 	{
 		if (depth[next] == -1)
 		{
@@ -20,6 +20,7 @@ void dfs(int cur, int dep)
 int lca(int a, int b)
 {
 	if (depth[a] > depth[b]) swap(a, b);
+	
 	int diff = depth[b] - depth[a];
 	for (int i = 0; diff; i++)
 	{
@@ -27,10 +28,14 @@ int lca(int a, int b)
 		diff /= 2;
 	}
 	if (a == b) return a;
+
 	// a != b
+	// 2^17, 2^16, ... 2, 1 번째 부모를 비교
+	// 2^j번째 조상이 다른게 나오면 a, b 를 각각의 2^j번째 조상으로 위치변경		
+	// 중요!!
 	for (int i = 16; i >= 0; i--)
 	{
-		if (st[i][a] != st[i][b])
+		if (st[i][a] != 0 && st[i][a] != st[i][b])
 		{
 			a = st[i][a];
 			b = st[i][b];
@@ -40,13 +45,13 @@ int lca(int a, int b)
 }
 int main()
 {
+	cin.tie(0); ios::sync_with_stdio(0);
 	cin >> N;
 	for (int i = 0; i < N - 1; i++)
 	{
 		cin >> a >> b;
-		graph[a].push_back(b);
-		graph[b].push_back(a);
-		
+		adj[a].push_back(b);
+		adj[b].push_back(a);
 	}
 	memset(depth, -1, sizeof(depth));
 	dfs(1, 0);
@@ -60,5 +65,3 @@ int main()
 		cout << lca(a, b) << "\n";
 	}
 }
-
-// depth also can be used as visited

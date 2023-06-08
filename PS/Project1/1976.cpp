@@ -3,24 +3,24 @@
 #include <vector>
 using namespace std;
 int N, M;
-int parent[201], rnk[201];
+int st[201], rnk[201];
 int find(int x)
 {
-	if (parent[x] == x) return x;
-	else return parent[x] = find(parent[x]);
+	if (st[x] == x) return x;
+	else return st[x] = find(st[x]);
 }
 void merge(int x, int y)
 {
 	x = find(x); y = find(y);
 	if (x == y) return;
 	if (rnk[x] < rnk[y]) swap(x, y);
-	parent[y] = x;
+	st[y] = x;
 	if (rnk[x] == rnk[y]) rnk[x]++;
 }
 int main()
 {
 	cin >> N >> M;
-	for (int i = 1; i <= N; i++) parent[i] = i;
+	for (int i = 1; i <= N; i++) st[i] = i;
 	for (int i = 1; i <= N; i++)
 		for (int j = 1; j <= N; j++)
 		{

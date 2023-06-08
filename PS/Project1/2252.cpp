@@ -5,7 +5,7 @@
 #define MAX 32000
 using namespace std;
 int N, M, inDegree[MAX+1];
-vector<int> graph[MAX+1];
+vector<int> adj[MAX+1];
 
 void topologySort()
 {
@@ -17,9 +17,9 @@ void topologySort()
 		if (q.empty()) return;
 		int cur = q.front(); q.pop();
 		result[i] = cur;
-		for (int j = 0; j < graph[cur].size(); j++)
+		for (int j = 0; j < adj[cur].size(); j++)
 		{
-			int next = graph[cur][j];
+			int next = adj[cur][j];
 			if (--inDegree[next] == 0) q.push(next);
 		}
 	}
@@ -33,7 +33,7 @@ int main()
 	for (int i = 0; i < M; i++)
 	{
 		int a, b; cin >> a >> b;
-		graph[a].push_back(b);
+		adj[a].push_back(b);
 		inDegree[b]++;
 	}
 	topologySort();

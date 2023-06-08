@@ -7,7 +7,7 @@
 using namespace std;
 int T, N, m, t, s, g, h, a, b, d, x;
 struct Edge { int to, cost; };
-vector<Edge> graph[MAX + 1];
+vector<Edge> adj[MAX + 1];
 int dist[MAX + 1]; bool visited[MAX + 1];
 void Dijkstra(int start)
 {
@@ -22,10 +22,10 @@ void Dijkstra(int start)
 		int cur = pq.top().second; pq.pop();
 		if (visited[cur]) continue;
 		visited[cur] = true;
-		for (int i = 0; i < graph[cur].size(); i++)
+		for (int i = 0; i < adj[cur].size(); i++)
 		{
-			int next = graph[cur][i].to;
-			int nextCost = graph[cur][i].cost;
+			int next = adj[cur][i].to;
+			int nextCost = adj[cur][i].cost;
 			if (dist[next] > dist[cur] + nextCost)
 			{
 				dist[next] = dist[cur] + nextCost;
@@ -40,11 +40,11 @@ int main()
 	while (T--)
 	{
 		cin >> N >> m >> t >> s >> g >> h;
-		for (int i = 1; i <= N; i++) graph[i].clear();
+		for (int i = 1; i <= N; i++) adj[i].clear();
 		while (m--) 
 		{ 
 			cin >> a >> b >> d; 
-			graph[a].push_back({ b, d }); graph[b].push_back({ a, d }); 
+			adj[a].push_back({ b, d }); adj[b].push_back({ a, d }); 
 		}
 		vector<int> targets;
 		while (t--) { cin >> x; targets.push_back(x); }
