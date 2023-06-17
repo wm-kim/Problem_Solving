@@ -3,17 +3,17 @@
 #include <cstring>
 #include <vector>
 using namespace std;
-bool visited[501];
+bool pre[501];
 vector<int> adj[501];
 int N, m, idx;
 bool IsCycle(int node, int parent)
 {
-	visited[node] = true;
+	pre[node] = true;
 	for (int i = 0; i < adj[node].size(); i++)
 	{
 		int next = adj[node][i];
 		if (next == parent) continue;
-		if (visited[next]) return true;
+		if (pre[next]) return true;
 		if (IsCycle(next, node)) return true;
 	}
 	return false;
@@ -21,11 +21,11 @@ bool IsCycle(int node, int parent)
 
 int IsTree()
 {
-	memset(visited, false, sizeof(visited));
+	memset(pre, false, sizeof(pre));
 	int cnt = 0;
 	for (int i = 1; i <= N; i++)
 	{
-		if (!visited[i])
+		if (!pre[i])
 			if (!IsCycle(i, 0)) cnt++;
 	}
 	return cnt;

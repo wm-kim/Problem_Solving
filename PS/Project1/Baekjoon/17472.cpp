@@ -5,7 +5,7 @@ using namespace std;
 int N, M, ans;
 struct Pos { int x, y; };
 struct Edge { Pos from, to; int cost; };
-int grid[11][11]; bool visited[11][11], isBorder[11][11];
+int grid[11][11]; bool pre[11][11], isBorder[11][11];
 Pos pre[11][11]; int rnk[11][11];
 int dx[] = { 0,0,-1,1 }, dy[] = { -1,1,0,0 };
 vector<Edge> edges;
@@ -29,13 +29,13 @@ void merge(Pos a, Pos b)
 }
 void dfs(Pos start)
 {
-	visited[start.y][start.x] = true;
+	pre[start.y][start.x] = true;
 	bool border = false;
 	for (int i = 0; i < 4; i++)
 	{
 		int nx = start.x + dx[i], ny = start.y + dy[i];
 		if (nx < 0 || nx >= M || ny < 0 || ny >= N) continue;
-		if (grid[ny][nx] == 1 && !visited[ny][nx])
+		if (grid[ny][nx] == 1 && !pre[ny][nx])
 		{
 			pre[ny][nx] = start;
 			dfs({ nx,ny });
@@ -84,7 +84,7 @@ int main()
 	
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < M; j++)
-			if (grid[i][j] == 1 && !visited[i][j]) dfs({ j,i });
+			if (grid[i][j] == 1 && !pre[i][j]) dfs({ j,i });
 
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < M; j++)

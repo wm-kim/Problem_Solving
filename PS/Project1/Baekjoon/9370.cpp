@@ -8,20 +8,20 @@ using namespace std;
 int T, N, m, t, s, g, h, a, b, d, x;
 struct Edge { int to, cost; };
 vector<Edge> adj[MAX + 1];
-int dist[MAX + 1]; bool visited[MAX + 1];
+int dist[MAX + 1]; bool pre[MAX + 1];
 void Dijkstra(int start)
 {
 	priority_queue<pair<int, int>> pq;
 	pq.push({ 0, start });
-	fill(visited, visited + N + 1, false);
+	fill(pre, pre + N + 1, false);
 	fill(dist, dist + N + 1, INF);
 	dist[start] = 0;
 	
 	while (!pq.empty())
 	{
 		int cur = pq.top().second; pq.pop();
-		if (visited[cur]) continue;
-		visited[cur] = true;
+		if (pre[cur]) continue;
+		pre[cur] = true;
 		for (int i = 0; i < adj[cur].size(); i++)
 		{
 			int next = adj[cur][i].to;

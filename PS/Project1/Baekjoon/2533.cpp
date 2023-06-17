@@ -5,17 +5,17 @@ using namespace std;
 int N, u, s;
 vector<int> adj[1000001];
 int dp[1000001][2];
-bool visited[1000001];
+bool pre[1000001];
 void dfs(int start, int parent)
 {
-	visited[start] = true;
+	pre[start] = true;
 	dp[start][0] = 0;
 	dp[start][1] = 1;
 	
 	for (int i = 0; i < adj[start].size(); i++)
 	{
 		int next = adj[start][i];
-		if (next != parent && !visited[next])
+		if (next != parent && !pre[next])
 		{
 			dfs(next, start);
 			dp[start][0] += dp[next][1];

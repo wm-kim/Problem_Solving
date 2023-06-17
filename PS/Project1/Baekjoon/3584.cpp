@@ -3,18 +3,18 @@
 #include <vector>
 using namespace std;
 int T, N, a, b, u, v, st[10001];
-bool visited[10001];
+bool pre[10001];
 void lca(int a, int b)
 {
-	visited[a] = true;
+	pre[a] = true;
 	while (st[a] != a)
 	{
 		a = st[a];
-		visited[a] = true;
+		pre[a] = true;
 	}
 	while (1)
 	{
-		if (visited[b]) { cout << b << "\n"; break; }
+		if (pre[b]) { cout << b << "\n"; break; }
 		b = st[b];
 	}
 }
@@ -25,7 +25,7 @@ int main()
 	while (T--)
 	{
 		cin >> N;
-		for (int i = 1; i <= N; i++) { visited[i] = false; st[i] = i; }
+		for (int i = 1; i <= N; i++) { pre[i] = false; st[i] = i; }
 		for (int i = 0; i < N - 1; i++) { cin >> a >> b; st[b] = a; }
 		cin >> u >> v;
 		lca(u, v);

@@ -5,7 +5,7 @@
 const int N = 8;
 using namespace std;
 vector<int> s(N), pm(N);
-bool visited[N];
+bool pre[N];
 int ans;
 bool check(double a1, double a2, double a3)
 {
@@ -33,12 +33,12 @@ void permutation(int cnt)
 	}
 	for (int i = 0; i < N; i++)
 	{
-		if (!visited[i])
+		if (!pre[i])
 		{
-			visited[i] = true;
+			pre[i] = true;
 			pm[cnt] = s[i];
 			permutation(cnt + 1);
-			visited[i] = false;
+			pre[i] = false;
 		}
 	}
 }

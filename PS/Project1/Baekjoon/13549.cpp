@@ -8,7 +8,7 @@ int N, K, ans;
 struct Edge { int to, cost; };
 vector<Edge> adj[MAX + 1];
 int dist[MAX + 1];
-bool visited[MAX + 1];
+bool pre[MAX + 1];
 void Dijkstra(int start)
 {
 	priority_queue<pair<int, int>> pq;
@@ -17,8 +17,8 @@ void Dijkstra(int start)
 	while (!pq.empty())
 	{
 		int cur = pq.top().second; pq.pop();
-		if (visited[cur]) continue;
-		visited[cur] = true;
+		if (pre[cur]) continue;
+		pre[cur] = true;
 		if (cur == K) return;
 		for (int i = 0; i < adj[cur].size(); i++)
 		{

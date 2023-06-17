@@ -4,19 +4,19 @@
 using namespace std;
 // dp[i][0]: 정점 i를 선택하지 않은 경우, dp[i][1]: 정점 i를 선택한 경우
 int N; int w[10001], dp[10001][2];
-bool visited[10001];
+bool pre[10001];
 vector<int> adj[10001], ans;
 
 void dfs(int start, int parent)
 {
-	visited[start] = true;
+	pre[start] = true;
 	dp[start][0] = 0;
 	dp[start][1] = w[start];
 	
 	for (int i = 0; i < adj[start].size(); i++)
 	{
 		int next = adj[start][i];
-		if (next != parent && !visited[next])
+		if (next != parent && !pre[next])
 		{
 			dfs(next, start);
 			dp[start][0] += max(dp[next][0], dp[next][1]);

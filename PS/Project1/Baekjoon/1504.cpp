@@ -7,19 +7,19 @@ using namespace std;
 struct Edge { int to, cost; };
 int N, E, a, b, c, v1, v2, ans = INF;
 vector<Edge> adj[801];
-int dist[801]; bool visited[801];
+int dist[801]; bool pre[801];
 void Dijkstra(int start)
 {
 	priority_queue<pair<int, int>> pq;
 	pq.push({ 0, start });
-	fill(visited, visited + N + 1, false);
+	fill(pre, pre + N + 1, false);
 	fill(dist, dist + N + 1, INF);
 	dist[start] = 0;
 	while (!pq.empty())
 	{
 		int cur = pq.top().second; pq.pop();
-		if (visited[cur]) continue;
-		visited[cur] = true;
+		if (pre[cur]) continue;
+		pre[cur] = true;
 		for (int i = 0; i < (int)adj[cur].size(); i++)
 		{
 			int next = adj[cur][i].to;

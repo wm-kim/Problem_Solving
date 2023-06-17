@@ -4,16 +4,16 @@
 using namespace std;
 int N, R, Q, U, V;
 vector<int> adj[100001]; 
-bool visited[100001];
+bool pre[100001];
 int sizeOfSubtree[100001];
 void dfs(int cur, int parent)
 {
-	visited[cur] = true;
+	pre[cur] = true;
 	sizeOfSubtree[cur] = 1;
 	for (int next : adj[cur])
 	{
 		if (next == parent) continue;
-		if (!visited[next])
+		if (!pre[next])
 		{
 			dfs(next, cur);
 			sizeOfSubtree[cur] += sizeOfSubtree[next];

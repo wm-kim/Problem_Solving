@@ -4,16 +4,16 @@
 using namespace std;
 int N, u, s, pop[10001], dp[10001][2];
 vector<int> adj[10001];
-bool visited[10001];
+bool pre[10001];
 void dfs(int start, int parent)
 {
-	visited[start] = true;
+	pre[start] = true;
 	dp[start][0] = 0;
 	dp[start][1] = pop[start];
 
 	for (int next : adj[start])
 	{
-		if (next != parent && !visited[next])
+		if (next != parent && !pre[next])
 		{
 			dfs(next, start);
 			dp[start][0] += max(dp[next][0], dp[next][1]);
