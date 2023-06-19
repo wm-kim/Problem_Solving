@@ -263,6 +263,13 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Jongman\4.5.cpp" />
+    <ClCompile Include="Jongman\dictImplwithVec.cpp" />
+    <ClCompile Include="Jongman\eratosthenesBitmask.cpp" />
+    <ClCompile Include="Jongman\freqCountOnVec.cpp" />
+    <ClCompile Include="Jongman\movingAverage.cpp" />
+    <ClCompile Include="Jongman\정렬 복습.cpp" />
+    <ClCompile Include="Jongman\소인수분해.cpp" />
     <ClCompile Include="MemoryTracker.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

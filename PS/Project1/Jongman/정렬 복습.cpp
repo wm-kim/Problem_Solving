@@ -66,6 +66,24 @@ int partition(int arr[], int left, int right) {
 	return i + 1;
 }
 
+void merge(int arr[], int left, int mid, int right) {
+	vector<int> temp(0, right - left + 1);
+	int i = left, j = mid + 1, k = 0;
+
+	while (i <= mid && j <= right) {
+		temp[++k] = (arr[i] <= arr[j]) ? arr[i++] : arr[j++];
+	}
+	while (i <= mid) {
+		temp[k++] = arr[i++];
+	}
+	while (j <= right) {
+		temp[k++] = arr[j++];
+	}
+	for (i = left; i <= right; ++i) {
+		arr[i] = temp[i - left];
+	}
+}
+
 void countingSort(int arr[], int n, int range) {
 	vector<int> count(0, range + 1);
 	vector<int> output(0, n);
@@ -82,6 +100,32 @@ void radix_sort(int arr[], int n) {
 	for (int i = 1; i < n; i++) if (arr[i] > max_num) max_num = arr[i];
 	for (int exp = 1; max_num / exp > 0; exp *= 10) {
 		countingSort(arr, n, exp);
+	}
+}
+
+#include <queue>
+
+int maxValue;
+queue<int> Q[10];
+void Radix_sort(vector<int>& arr) {
+	int radix = 1;
+	while (1)
+	{
+		if (radix >= maxValue) break;
+		radix = radix * 10;
+	}
+	for (int i = 1; i < radix; i *= 10) {
+		for (int j = 0; j < arr.size(); j++) {
+			int K = (arr[j] / i) % 10;
+			Q[K].push(arr[j]);
+		}
+		int Idx = 0;
+		for (int j = 0; j < 10; j++) {
+			while (!Q[j].empty()) {
+				arr[Idx] = Q[j].front(); Q[j].pop();
+				Idx++;
+			}
+		}
 	}
 }
 
