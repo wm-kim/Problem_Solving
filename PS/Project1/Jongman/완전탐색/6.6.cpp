@@ -47,4 +47,3 @@ int cover(vector<vector<int>>& board) {
 	}
 	return ret;
 }
-
