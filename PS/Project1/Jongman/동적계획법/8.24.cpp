@@ -34,7 +34,7 @@ double search(vector<int>& path) {
 // 메모이제이션 - 이대로는 할 수 없으므로 정보를 줄이기
 // path가 쓰이는 용도 : 1. 현재 위치, 2. 길이(지난 날짜), 3. 확률 계산
 
-// path 대신 here과 할옥후 지난 날짜 days를 전달
+// path 대신 here과 탈옥후 지난 날짜 days를 전달
 // 전체 경로의 확률이 아니라, 남은 날짜만큼 움직여 q에 도달할 확률 계산
 
 // search2(here, days) days일 째에 here에 숨어있을 때, 마지막에 q번에 있을 조건부 확률

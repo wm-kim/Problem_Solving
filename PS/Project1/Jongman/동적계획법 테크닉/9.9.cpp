@@ -58,11 +58,9 @@ void generate3(int n, int m, string s) {
 		skip -= bino[n + m][n];
 		return;
 	}
-
 	if (n > 0) generate2(n - 1, m, s + "-");
 	if (m > 0) generate2(n, m - 1, s + "o");
 }
-
 
 
 // 깔끔한 구현 - 완탐에서 시작하는게 아니라

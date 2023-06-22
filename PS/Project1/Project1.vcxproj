@@ -268,6 +268,13 @@
     <ClCompile Include="Jongman\eratosthenesBitmask.cpp" />
     <ClCompile Include="Jongman\freqCountOnVec.cpp" />
     <ClCompile Include="Jongman\movingAverage.cpp" />
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.1.cpp" />
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.2.cpp" />
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.3.cpp" />
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.9.cpp" />
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.11.cpp" />
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.13.cpp" />
+    <ClCompile Include="Jongman\동적계획법 테크닉\소스.cpp" />
     <ClCompile Include="Jongman\동적계획법\8.3.cpp" />
     <ClCompile Include="Jongman\동적계획법\8.5.cpp" />
     <ClCompile Include="Jongman\동적계획법\8.7.cpp" />
@@ -277,7 +284,10 @@
     <ClCompile Include="Jongman\동적계획법\8.14.cpp" />
     <ClCompile Include="Jongman\동적계획법\8.15.cpp" />
     <ClCompile Include="Jongman\동적계획법\8.16.cpp" />
-    <ClCompile Include="Jongman\동적계획법\소스.cpp" />
+    <ClCompile Include="Jongman\동적계획법\8.18.cpp" />
+    <ClCompile Include="Jongman\동적계획법\8.20.cpp" />
+    <ClCompile Include="Jongman\동적계획법\8.21.cpp" />
+    <ClCompile Include="Jongman\동적계획법\8.24.cpp" />
     <ClCompile Include="Jongman\분할정복\7.1.cpp" />
     <ClCompile Include="Jongman\분할정복\7.2.cpp" />
     <ClCompile Include="Jongman\분할정복\7.5.cpp" />
