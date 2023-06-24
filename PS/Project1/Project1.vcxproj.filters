@@ -708,7 +708,37 @@
     <ClCompile Include="Jongman\동적계획법 테크닉\9.13.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Jongman\동적계획법 테크닉\소스.cpp">
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.15.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.17.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.19.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.20.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.21.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.22.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.26.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.29.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\동적계획법 테크닉\9.31.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\탐욕법\10.1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\탐욕법\소스.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
