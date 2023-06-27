@@ -309,6 +309,12 @@
     <ClCompile Include="Jongman\완전탐색\6.8.cpp" />
     <ClCompile Include="Jongman\정렬 복습.cpp" />
     <ClCompile Include="Jongman\소인수분해.cpp" />
+    <ClCompile Include="Jongman\조합탐색\11.2.cpp" />
+    <ClCompile Include="Jongman\조합탐색\11.4.cpp" />
+    <ClCompile Include="Jongman\조합탐색\11.8.cpp" />
+    <ClCompile Include="Jongman\조합탐색\11.9.cpp" />
+    <ClCompile Include="Jongman\조합탐색\11.14.cpp" />
+    <ClCompile Include="Jongman\최적화결정문제변환\소스.cpp" />
     <ClCompile Include="Jongman\탐욕법\10.1.cpp" />
     <ClCompile Include="Jongman\탐욕법\10.2.cpp" />
     <ClCompile Include="Jongman\탐욕법\10.3.cpp" />

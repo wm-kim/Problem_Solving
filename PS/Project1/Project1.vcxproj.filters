@@ -738,7 +738,34 @@
     <ClCompile Include="Jongman\탐욕법\10.1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Jongman\탐욕법\소스.cpp">
+    <ClCompile Include="Jongman\탐욕법\10.2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\탐욕법\10.3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\탐욕법\10.4.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\탐욕법\10.5.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\조합탐색\11.2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\조합탐색\11.4.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\조합탐색\11.8.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\조합탐색\11.9.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\조합탐색\11.14.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Jongman\최적화결정문제변환\소스.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
