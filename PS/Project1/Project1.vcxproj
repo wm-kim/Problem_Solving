@@ -314,6 +314,9 @@
     <ClCompile Include="Jongman\조합탐색\11.8.cpp" />
     <ClCompile Include="Jongman\조합탐색\11.9.cpp" />
     <ClCompile Include="Jongman\조합탐색\11.14.cpp" />
+    <ClCompile Include="Jongman\최적화결정문제변환\12.1.cpp" />
+    <ClCompile Include="Jongman\최적화결정문제변환\12.2.cpp" />
+    <ClCompile Include="Jongman\최적화결정문제변환\12.3.cpp" />
     <ClCompile Include="Jongman\최적화결정문제변환\소스.cpp" />
     <ClCompile Include="Jongman\탐욕법\10.1.cpp" />
     <ClCompile Include="Jongman\탐욕법\10.2.cpp" />
